@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://brvn7jsa21rq1"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_mjx38"]
+[ext_resource type="Texture2D" uid="uid://buddml433ddfd" path="res://Art/Player/AWP_Player.png" id="2_uscn8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_anqvb"]
+atlas = ExtResource("2_uscn8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hsjlg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_anqvb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_mjx38")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_hsjlg")
+animation = &"Idle"
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(16, -25, 16, 17, 0, 25, -16, 17, -16, -25, 0, -33)

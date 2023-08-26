@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://dledal8r50f7y"]
+
+[ext_resource type="Texture2D" uid="uid://chvq86tqwn035" path="res://Art/World/AWP_TileSet.png" id="1_0ef0w"]
+[ext_resource type="PackedScene" uid="uid://brvn7jsa21rq1" path="res://player.tscn" id="2_7ngx2"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8uqe"]
+texture = ExtResource("1_0ef0w")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_kmwwm"]
+tile_shape = 1
+tile_size = Vector2i(32, 16)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_j8uqe")
+
+[node name="World" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+y_sort_enabled = true
+tile_set = SubResource("TileSet_kmwwm")
+format = 2
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 131072, 0, 1, 1, 0, 0, 65537, 0, 1, 65536, 0, 0, 131073, 0, 0, 196609, 0, 0, 262146, 0, 0, 327681, 0, 0, 393218, 0, 0, 458754, 0, 0, 524291, 0, 0, 458755, 0, 0, 524292, 0, 0, 458756, 65536, 0, 393221, 65536, 0, 327685, 65536, 0, 262150, 0, 0)
+
+[node name="Player" parent="." instance=ExtResource("2_7ngx2")]
+position = Vector2(15, -18)
