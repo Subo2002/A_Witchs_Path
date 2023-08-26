@@ -19,6 +19,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
+motion_mode = 1
 script = ExtResource("1_mjx38")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
