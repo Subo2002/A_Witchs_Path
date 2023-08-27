@@ -19,7 +19,7 @@ animations = [{
 }]
 
 [node name="Player" type="CharacterBody2D"]
-motion_mode = 1
+z_index = 1
 script = ExtResource("1_mjx38")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -27,4 +27,4 @@ sprite_frames = SubResource("SpriteFrames_hsjlg")
 animation = &"Idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(16, -25, 16, 17, 0, 25, -16, 17, -16, -25, 0, -33)
+polygon = PackedVector2Array(-16, 0, 0, 6, 16, -1, 0, -8)
