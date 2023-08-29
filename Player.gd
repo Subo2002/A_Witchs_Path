@@ -6,6 +6,7 @@ extends CharacterBody2D
 
 
 func _physics_process(delta):
+	
 	#Input Direction
 	var input_direction : Vector2 = Vector2(
 		Input.get_action_strength("right") - Input.get_action_strength("left"),
@@ -13,9 +14,16 @@ func _physics_process(delta):
 	)
 	velocity = input_direction.normalized()*speed #make sure to normalize or else diagonal movement will be faster than cardinal
 	#delta is the time between the last frame and this one, and approximates how much time
-	var collision_info = move_and_collide(velocity * delta)
-	if collision_info:  #collision_info isn't a boolean so this doesn't make sense in that sense, what it does is check if collision info is a null object, i.e. if you actually collided with anything
-		print(collision_info.get_position())
+	var collider_information = move_and_collide(velocity*delta)
+	if collider_information:
+		var collider_cuboid = collider_information.get_collider() as ColliderCuboid
+		var collider = collider_cuboid.get_collider_box() as collider_box
+		if collider.collision():
+			position -= velocity * delta
+		else:
+			position += velocity * delta
+		
+		
 
 
 	
