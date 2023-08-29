@@ -20,11 +20,14 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_mjx38")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -24)
 sprite_frames = SubResource("SpriteFrames_hsjlg")
 animation = &"Idle"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-16, 0, 0, 6, 16, -1, 0, -8)
+position = Vector2(0, -24)
+polygon = PackedVector2Array(-16, 16, 0, 24, 16, 16, 16, -24, 0, -32, -16, -24)

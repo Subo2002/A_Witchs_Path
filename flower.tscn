@@ -8,6 +8,7 @@
 size = Vector2(23, 16)
 
 [node name="Flower" type="Area2D"]
+z_index = 1
 script = ExtResource("1_ens48")
 PathGlowBorderLayer = NodePath("GlowBorderLayer")
 

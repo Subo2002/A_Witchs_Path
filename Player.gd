@@ -1,7 +1,8 @@
 extends CharacterBody2D
 
 @export var speed : float = 100
-@export var gravity:float = 980
+@export var gravity : float = 980
+@export var volume : Vector3 = Vector3(-1, -1, 2)
 
 
 func _physics_process(delta):
@@ -16,3 +17,5 @@ func _physics_process(delta):
 	if collision_info:  #collision_info isn't a boolean so this doesn't make sense in that sense, what it does is check if collision info is a null object, i.e. if you actually collided with anything
 		print(collision_info.get_position())
 
+
+	

@@ -1,53 +1,28 @@
-[gd_scene load_steps=7 format=3 uid="uid://dledal8r50f7y"]
+[gd_scene load_steps=9 format=3 uid="uid://dledal8r50f7y"]
 
 [ext_resource type="Texture2D" uid="uid://chvq86tqwn035" path="res://Art/World/AWP_TileSet.png" id="1_0ef0w"]
 [ext_resource type="PackedScene" uid="uid://brvn7jsa21rq1" path="res://player.tscn" id="2_7ngx2"]
+[ext_resource type="PackedScene" uid="uid://qio28v44o0c7" path="res://collider_box.tscn" id="2_tgxgs"]
 [ext_resource type="PackedScene" uid="uid://c7pc5qcbxfx81" path="res://flower.tscn" id="3_lkxdr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8uqe"]
 texture = ExtResource("1_0ef0w")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
+0:0/0/z_index = -1
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_1/angular_velocity = 0.0
 0:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, -17, 16, -9.5, 16.5, 9, 0.5, 17.5, -16.5, 9, -16, -9)
 1:0/0 = 0
+1:0/0/z_index = -1
 1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_0/angular_velocity = 0.0
 1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, 8, 16, 0, 16, -9.5, 0, -1, -16, -9.5, -16, 0)
 1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
 1:0/0/physics_layer_1/angular_velocity = 0.0
 1:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(0, -17, 16, -9.5, 16, 1.5, -0.5, 9.5, -16, 1.5, -16, -9)
-0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
-0:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_1/angular_velocity = 0.0
-1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
-1:1/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_1/angular_velocity = 0.0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ffifh"]
-texture = ExtResource("1_0ef0w")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/z_index = 2
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-0.5, -16, 14.5, -8.5, 0, -1, -14.5, -8.5)
-0:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_1/angular_velocity = 0.0
-1:0/0 = 0
-1:0/0/z_index = 2
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
-1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(0, -17, 16, -9, 16, 1.5, 0, 9.5, -15.5, 2, -16, -9.5)
-1:0/0/physics_layer_1/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_1/angular_velocity = 0.0
 0:1/0 = 0
 0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:1/0/physics_layer_0/angular_velocity = 0.0
@@ -66,19 +41,26 @@ physics_layer_0/collision_layer = 1
 physics_layer_1/collision_layer = 2
 physics_layer_1/collision_mask = 2
 sources/0 = SubResource("TileSetAtlasSource_j8uqe")
-sources/1 = SubResource("TileSetAtlasSource_ffifh")
+
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_8vdoy"]
+scenes/1/scene = ExtResource("2_tgxgs")
+
+[sub_resource type="TileSet" id="TileSet_qm0lh"]
+tile_shape = 1
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetScenesCollectionSource_8vdoy")
 
 [node name="World" type="Node2D"]
+y_sort_enabled = true
 
 [node name="TileMap" type="TileMap" parent="."]
 y_sort_enabled = true
 tile_set = SubResource("TileSet_kmwwm")
 format = 2
 layer_0/y_sort_enabled = true
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 131072, 0, 0, 1, 1, 0, 65537, 1, 0, 65536, 1, 0, 131073, 0, 0, 196609, 0, 0, 262146, 1, 0, 327681, 0, 0, 393218, 0, 0, 458754, 0, 0, 524291, 0, 0, 458755, 0, 0, 524292, 0, 0, 458756, 0, 0, 393221, 0, 0, 327685, 0, 0, 262150, 0, 0, 2, 0, 0, -65535, 0, 0, -131070, 0, 0, -196606, 0, 0, -262141, 0, 0, -327677, 0, 0, -393212, 0, 0, -458748, 0, 0, -327676, 0, 0, -262140, 0, 0, -65534, 0, 0, -131069, 0, 0, -196605, 0, 0, -393211, 0, 0, 393220, 0, 0, 327684, 0, 0, 262148, 0, 0, 196612, 0, 0, 131077, 0, 0, 65541, 0, 0, 6, 0, 0, -65530, 0, 0, -131065, 0, 0, -65529, 0, 0, 7, 0, 0, 262149, 0, 0, 65542, 0, 0, 131078, 0, 0, 196613, 0, 0, 327683, 1, 0, 393219, 0, 0, 327682, 0, 0, 262147, 1, 0, 196610, 1, 0, 131074, 1, 0, 65538, 0, 0, -262139, 0, 0, -327675, 0, 0, -196604, 0, 0, -131068, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 131075, 1, 0, 4, 0, 0, -65532, 0, 0, -131067, 0, 0, -196603, 0, 0, -262138, 0, 0, -131066, 0, 0, -65531, 0, 0, 5, 0, 0, 65540, 0, 0, 131076, 0, 0, 196611, 0, 0, -196602, 0, 0, 8, 0, 0, 65543, 0, 0, 131079, 0, 0, 196614, 0, 0, 589827, 0, 0, 262145, 0, 0, 196608, 0, 0, 131071, 0, 0, -65536, 1, 0, -131072, 1, 0, -196608, 0, 0, -262143, 0, 0, -327679, 0, 0, -393214, 0, 0, -458750, 0, 0, -393213, 0, 0, -458749, 0, 0, -524284, 0, 0, -589820, 0, 0, -327678, 0, 0, -262142, 0, 0, -196607, 0, 0, -131071, 0, 0, 327686, 0, 0, 393222, 0, 0, 458757, 0, 0, 524294, 0, 0, 589829, 0, 0, 655366, 0, 0, 589830, 0, 0, 458758, 0, 0, -327680, 0, 0, -262144, 0, 0)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 131072, 0, 0, 131073, 0, 0, 196609, 0, 0, 327681, 0, 0, 393218, 0, 0, 458754, 0, 0, 524291, 0, 0, 458755, 0, 0, 524292, 0, 0, 458756, 0, 0, 393221, 0, 0, 327685, 0, 0, 262150, 0, 0, 2, 0, 0, -65535, 0, 0, -131070, 0, 0, -196606, 0, 0, -262141, 0, 0, -327677, 0, 0, -393212, 0, 0, -458748, 0, 0, -327676, 0, 0, -262140, 0, 0, -65534, 0, 0, -131069, 0, 0, -196605, 0, 0, -393211, 0, 0, 393220, 0, 0, 327684, 0, 0, 262148, 0, 0, 196612, 0, 0, 131077, 0, 0, 65541, 0, 0, 6, 0, 0, -65530, 0, 0, -131065, 0, 0, -65529, 0, 0, 7, 0, 0, 262149, 0, 0, 65542, 0, 0, 131078, 0, 0, 196613, 0, 0, 393219, 0, 0, 327682, 0, 0, 65538, 0, 0, -262139, 0, 0, -327675, 0, 0, -196604, 0, 0, -131068, 0, 0, -65533, 0, 0, 3, 0, 0, 65539, 0, 0, 4, 0, 0, -65532, 0, 0, -131067, 0, 0, -196603, 0, 0, -262138, 0, 0, -131066, 0, 0, -65531, 0, 0, 5, 0, 0, 65540, 0, 0, 131076, 0, 0, 196611, 0, 0, -196602, 0, 0, 8, 0, 0, 65543, 0, 0, 131079, 0, 0, 196614, 0, 0, 589827, 0, 0, 262145, 0, 0, 196608, 0, 0, 131071, 0, 0, -196608, 0, 0, -262143, 0, 0, -327679, 0, 0, -393214, 0, 0, -458750, 0, 0, -393213, 0, 0, -458749, 0, 0, -524284, 0, 0, -589820, 0, 0, -327678, 0, 0, -262142, 0, 0, -196607, 0, 0, -131071, 0, 0, 327686, 0, 0, 393222, 0, 0, 458757, 0, 0, 524294, 0, 0, 589829, 0, 0, 655366, 0, 0, 589830, 0, 0, 458758, 0, 0, -327680, 0, 0, -262144, 0, 0)
 
 [node name="Player" parent="." instance=ExtResource("2_7ngx2")]
-y_sort_enabled = true
 position = Vector2(149, -2)
 motion_mode = 1
 
@@ -91,3 +73,32 @@ zoom = Vector2(3, 3)
 
 [node name="Flower" parent="." instance=ExtResource("3_lkxdr")]
 position = Vector2(223, -12)
+
+[node name="CollisionCuboids" type="TileMap" parent="."]
+z_index = -1
+y_sort_enabled = true
+tile_set = SubResource("TileSet_qm0lh")
+format = 2
+layer_0/y_sort_enabled = true
+layer_0/tile_data = PackedInt32Array(327683, 0, 65536, 262147, 0, 65536, 131075, 0, 65536, 196610, 0, 65536, 262146, 0, 65536, 65537, 0, 65536, 131073, 0, 65536, 196609, 0, 65536, 65536, 0, 65536, 1, 0, 65536)
+
+[connection signal="body_entered" from="CollisionCuboids/ColliderBox" to="CollisionCuboids/ColliderBox" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/ColliderBox" to="CollisionCuboids/ColliderBox" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77406" to="CollisionCuboids/@ColliderBox@77406" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77406" to="CollisionCuboids/@ColliderBox@77406" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77407" to="CollisionCuboids/@ColliderBox@77407" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77407" to="CollisionCuboids/@ColliderBox@77407" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77408" to="CollisionCuboids/@ColliderBox@77408" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77408" to="CollisionCuboids/@ColliderBox@77408" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77409" to="CollisionCuboids/@ColliderBox@77409" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77409" to="CollisionCuboids/@ColliderBox@77409" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77410" to="CollisionCuboids/@ColliderBox@77410" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77410" to="CollisionCuboids/@ColliderBox@77410" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77411" to="CollisionCuboids/@ColliderBox@77411" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77411" to="CollisionCuboids/@ColliderBox@77411" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77412" to="CollisionCuboids/@ColliderBox@77412" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77412" to="CollisionCuboids/@ColliderBox@77412" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77413" to="CollisionCuboids/@ColliderBox@77413" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77413" to="CollisionCuboids/@ColliderBox@77413" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77414" to="CollisionCuboids/@ColliderBox@77414" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77414" to="CollisionCuboids/@ColliderBox@77414" method="_on_body_exited" flags=18]
