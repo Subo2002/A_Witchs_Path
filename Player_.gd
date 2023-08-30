@@ -4,13 +4,19 @@ extends Area2D
 @export var Gravity : float = 980
 @export var volume : Vector3 = Vector3(-1, -1, 2)
 
+#FINDING COLLIDERS
 var colliding_bodies : Array = []
+var collider
 
 func _on_area_entered(area):
 	colliding_bodies.append(area as collider_box)
-	
+	print(area.position)
+
 func _on_area_exited(area):
 	colliding_bodies.erase(area as collider_box)
+
+
+
 
 func _physics_process(delta):
 	var velocity = Vector2(0, 0)
@@ -28,27 +34,19 @@ func _physics_process(delta):
 		var body_max = body.max_pos
 		var pos = screen_to_iso(Vector3(Position.x, Position.y, z_index))
 		var max = pos + volume
-		if (lines_intersect(body_min.x, body_max.x, pos.x, max.x) &&
-			lines_intersect(body_min.y, body_max.y, pos.y, max.y)
-			):  #need to add the Z-Check here, atm sign issue, too lazy to fix
-			print(pos)
-			print(max)
-			print(body_min)
-			print(body_max)
+		if (body_max.x < pos.x &&
+			max.x < body_min.x &&
+			body_max.y < pos.y &&
+			max.y < body_min.y ): #need to add the Z-Check here, atm sign issue, too lazy to fix
 			okay = false
 			
 	if okay:
 		position = Position
-		
-func lines_intersect(one_min, one_max, two_min, two_max) -> bool:
-	if (one_min >= two_min && two_min >= one_max ||
-		two_min >= one_min && one_min >= two_max):
-		return true
-	return false
 	
+#Should move in to a isometric math class maybe (same function copied in collider_box, could alternativley compute it here but not very OOP)
 func screen_to_iso(vector : Vector3) -> Vector3:
 	var iso_transform = Transform3D()
-	iso_transform.basis = Basis(Vector3(2, 1, 0)*(1/sqrt(5)), Vector3(2, -1, 0)*(1/sqrt(5)), Vector3(0, 0, 1))
+	iso_transform.basis = Basis(Vector3(1, -1, 0)*(1/32.0), Vector3(2, 2, 0)*(1/32.0), Vector3(0, 0, 1))
 	return iso_transform*vector
 		
 		
