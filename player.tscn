@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2aa2v28v4km1"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_hehwl"]
+[ext_resource type="Texture2D" uid="uid://buddml433ddfd" path="res://Art/Player/AWP_Player.png" id="2_4tlbf"]
+
+[node name="Player" type="Area2D"]
+y_sort_enabled = true
+collision_mask = 2
+script = ExtResource("1_hehwl")
+volume = Vector3(-1, -1, 2)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 0, 16, -8, 16, -48, 0, -56, -16, -48, -16, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+texture = ExtResource("2_4tlbf")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

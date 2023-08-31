@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://c1d1tymfwplog"]
+
+[ext_resource type="Script" path="res://Collider.gd" id="1_64d41"]
+
+[node name="Collider" type="Area2D"]
+y_sort_enabled = true
+script = ExtResource("1_64d41")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

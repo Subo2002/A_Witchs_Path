@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://btiq58fy668ab"]
+
+[ext_resource type="Script" path="res://half_tile_upper.gd" id="1_bs4mp"]
+[ext_resource type="Texture2D" uid="uid://cwbq3ilx01srl" path="res://Art/World/AWP_Tile_Half_Upper.png" id="1_w7n57"]
+
+[node name="Half Tile Upper" type="Area2D"]
+y_sort_enabled = true
+collision_layer = 2
+script = ExtResource("1_bs4mp")
+volume = Vector3(-1, -1, 0.5)
+offset = Vector3(0, 0, 0.5)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -17)
+polygon = PackedVector2Array(0, -13, 16, -5, 16, 2, 0, 10, -16, 2, -16, -5)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+texture = ExtResource("1_w7n57")
