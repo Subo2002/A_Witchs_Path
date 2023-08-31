@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cwbq3ilx01srl" path="res://Art/World/AWP_Tile_Half_Upper.png" id="1_w7n57"]
 
 [node name="Half Tile Upper" type="Area2D"]
+z_index = 1
 y_sort_enabled = true
 collision_layer = 2
 script = ExtResource("1_bs4mp")
@@ -16,5 +17,5 @@ position = Vector2(0, -17)
 polygon = PackedVector2Array(0, -13, 16, -5, 16, 2, 0, 10, -16, 2, -16, -5)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(0, -16)
+position = Vector2(0, -15)
 texture = ExtResource("1_w7n57")
