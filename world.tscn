@@ -74,6 +74,12 @@ zoom = Vector2(3, 3)
 [node name="Flower" parent="." instance=ExtResource("3_lkxdr")]
 position = Vector2(223, -12)
 
+[node name="Flower2" parent="." instance=ExtResource("3_lkxdr")]
+position = Vector2(208, 38)
+
+[node name="Flower3" parent="." instance=ExtResource("3_lkxdr")]
+position = Vector2(165, 13)
+
 [node name="CollisionCuboids" type="TileMap" parent="."]
 z_index = -1
 y_sort_enabled = true
@@ -82,23 +88,26 @@ format = 2
 layer_0/y_sort_enabled = true
 layer_0/tile_data = PackedInt32Array(327683, 0, 65536, 262147, 0, 65536, 131075, 0, 65536, 196610, 0, 65536, 262146, 0, 65536, 65537, 0, 65536, 131073, 0, 65536, 196609, 0, 65536, 65536, 0, 65536, 1, 0, 65536)
 
+[connection signal="body_entered" from="Flower" to="Flower" method="_on_body_entered"]
+[connection signal="body_entered" from="Flower2" to="Flower2" method="_on_body_entered"]
+[connection signal="body_entered" from="Flower3" to="Flower3" method="_on_body_entered"]
 [connection signal="body_entered" from="CollisionCuboids/ColliderBox" to="CollisionCuboids/ColliderBox" method="_on_body_entered" flags=18]
 [connection signal="body_exited" from="CollisionCuboids/ColliderBox" to="CollisionCuboids/ColliderBox" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77406" to="CollisionCuboids/@ColliderBox@77406" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77406" to="CollisionCuboids/@ColliderBox@77406" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77407" to="CollisionCuboids/@ColliderBox@77407" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77407" to="CollisionCuboids/@ColliderBox@77407" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77408" to="CollisionCuboids/@ColliderBox@77408" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77408" to="CollisionCuboids/@ColliderBox@77408" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77409" to="CollisionCuboids/@ColliderBox@77409" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77409" to="CollisionCuboids/@ColliderBox@77409" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77410" to="CollisionCuboids/@ColliderBox@77410" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77410" to="CollisionCuboids/@ColliderBox@77410" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77411" to="CollisionCuboids/@ColliderBox@77411" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77411" to="CollisionCuboids/@ColliderBox@77411" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77412" to="CollisionCuboids/@ColliderBox@77412" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77412" to="CollisionCuboids/@ColliderBox@77412" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77413" to="CollisionCuboids/@ColliderBox@77413" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77413" to="CollisionCuboids/@ColliderBox@77413" method="_on_body_exited" flags=18]
-[connection signal="body_entered" from="CollisionCuboids/@ColliderBox@77414" to="CollisionCuboids/@ColliderBox@77414" method="_on_body_entered" flags=18]
-[connection signal="body_exited" from="CollisionCuboids/@ColliderBox@77414" to="CollisionCuboids/@ColliderBox@77414" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21231" to="CollisionCuboids/@Area2D@21231" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21231" to="CollisionCuboids/@Area2D@21231" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21232" to="CollisionCuboids/@Area2D@21232" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21232" to="CollisionCuboids/@Area2D@21232" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21233" to="CollisionCuboids/@Area2D@21233" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21233" to="CollisionCuboids/@Area2D@21233" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21234" to="CollisionCuboids/@Area2D@21234" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21234" to="CollisionCuboids/@Area2D@21234" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21235" to="CollisionCuboids/@Area2D@21235" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21235" to="CollisionCuboids/@Area2D@21235" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21236" to="CollisionCuboids/@Area2D@21236" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21236" to="CollisionCuboids/@Area2D@21236" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21237" to="CollisionCuboids/@Area2D@21237" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21237" to="CollisionCuboids/@Area2D@21237" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21238" to="CollisionCuboids/@Area2D@21238" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21238" to="CollisionCuboids/@Area2D@21238" method="_on_body_exited" flags=18]
+[connection signal="body_entered" from="CollisionCuboids/@Area2D@21239" to="CollisionCuboids/@Area2D@21239" method="_on_body_entered" flags=18]
+[connection signal="body_exited" from="CollisionCuboids/@Area2D@21239" to="CollisionCuboids/@Area2D@21239" method="_on_body_exited" flags=18]

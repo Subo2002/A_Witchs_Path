@@ -22,8 +22,25 @@ func _input(_event):
 #also needs to send info of what is collected to the player so can add to inventory
 func click():
 	print("clicked")
+	queue_free()
 
 
 
+
+#when player touches item, item disappears
+func _on_body_entered(body):
+	if body.name =="Player":
+		for i in Game.Harvests.size():
+			if "Flower" in Game.Harvests[i]["Name"]:
+				Game.Harvests[i]["Count"] += 1
+				queue_free()
+			else:
+				Game.Harvests += [{
+					"Name": "Flower",
+					"Count": 1
+				}]
+			queue_free()
+	print(Game.Harvests)
+	
 
 
